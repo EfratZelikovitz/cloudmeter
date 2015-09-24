@@ -1,6 +1,27 @@
-<div class="row-header">
+<div class="row row-header">
 	<h3>Price Details</h3>
 </div>
-<div class="row-body">
-
+<div class="row row-body">
+	<div>
+		<div>
+			<input id="servers_num" type="text" ng-model="monthlyData.servers_num">
+			<label for="servers_num">4GB General Purpose (LIN)</label>
+			<div>$<span ng-bind="monthlyData.servers_cost"></span></div>
+		</div>
+		<div>
+			<input id="sessions" type="text" ng-model="sessions">
+			<label for="sessions">Sessions</label>
+			<div>$
+				<span ng-bind="monthlyData.license_cost"></span>
+			</div>
+		</div>
+	</div>
+	<div>
+		<span>Monthly Cost</span>
+		<div>$<span ng-bind="monthlyData.total_cost"></span>/mo</div>
+	</div>
+	<div>
+		<span>Total Cost</span>
+		<div>$<span ng-bind="yearlyData.total_cost"></span>/ye</div>
+	</div>
 </div>

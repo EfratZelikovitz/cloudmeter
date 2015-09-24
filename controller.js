@@ -22,4 +22,8 @@ app.controller("cloudmeterController", function($scope) {
 
     $scope.$watch('sessions', function(){ calculate();});
 
+    $scope.$watch('monthly_data.servers_num', 
+    	function(new_val) { $scope.monthly_data.servers_cost = new_val * $scope.server.cost;}
+    );
+
 });

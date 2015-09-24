@@ -1,7 +1,9 @@
 app.directive('pricing', function() {
   	return {
 	    restrict: 'AE',
-	    scope: {},
+	    scope: { monthlyData: '=',
+				 yearlyData: '=',
+				 sessions: '='},
 	    templateUrl: 'pricing/pricing.html'
   	};
 });
