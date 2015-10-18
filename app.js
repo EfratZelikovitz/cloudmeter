@@ -1,1 +1,1 @@
-var app = angular.module('cloudmeter', []);
+var app = angular.module('cloudmeter', ['n3-line-chart']);

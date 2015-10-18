@@ -5,10 +5,26 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 	<body ng-app="cloudmeter" ng-controller="cloudmeterController">
-		<estimate sessions="sessions" percent="estimate_percent"></estimate>
-		<servers servers-data="monthly_data"></servers>
-		<pricing monthly-data="monthly_data" yearly-data="yearly_data" sessions="sessions"></pricing>
-		<button>Generate Cost Prediction</button>
+		<div class="center">
+			<div class="left">
+				<estimate sessions="sessions" percent="estimate_percent"></estimate>
+				<servers servers-data="monthly_data"></servers>
+			</div>
+			<div class="right">
+				<pricing monthly-data="monthly_data" yearly-data="yearly_data" sessions="sessions" server="server"></pricing>
+				<button class="btn-green" ng-click="generate_chart()">Generate Cost Prediction</button>
+			</div>
+			<linechart data="data" options="options" width="1000" height="300" ng-show="show_chart"></linechart>
+			<div ng-show="show_chart" class="chart-delta">
+				<div ng-bind="old_cost | number:2"></div>
+				-
+				<div ng-bind="new_cost | number:2"></div>
+				------------------------
+				<div ng-bind="old_cost - new_cost | number:2"></div>
+			</div>
+		</div>
+		<script src="http://d3js.org/d3.v3.min.js"></script>
+		<script src="https://cdn.rawgit.com/n3-charts/line-chart/master/build/line-chart.min.js"></script>
 		<script src="app.js"></script>
 		<script src="controller.js"></script>
 		<script src="slider/slider.js"></script>

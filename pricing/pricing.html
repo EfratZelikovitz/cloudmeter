@@ -1,27 +1,35 @@
-<div class="row row-header">
+<div class="row-header pricing-row">
 	<h3>Price Details</h3>
 </div>
-<div class="row row-body">
-	<div>
-		<div>
-			<input id="servers_num" type="text" ng-model="monthlyData.servers_num">
-			<label for="servers_num">4GB General Purpose (LIN)</label>
-			<div>$<span ng-bind="monthlyData.servers_cost"></span></div>
-		</div>
-		<div>
-			<input id="sessions" type="text" ng-model="sessions">
-			<label for="sessions">Sessions</label>
-			<div>$
-				<span ng-bind="monthlyData.license_cost"></span>
-			</div>
-		</div>
+<div class="row-body pricing-row">
+	<div class="pricing-wrap">
+		<ul class="pricing">
+			<li>
+				<input id="servers_num" type="text" ng-model="monthlyData.servers_num">
+				<div class="item">
+					<label for="servers_num" ng-bind="server.description"></label>
+					<div class="price">$
+						<span ng-bind="monthlyData.servers_cost | number:2"></span>
+					</div>
+				</div>
+			</li>
+			<li>
+				<input id="sessions" type="text" ng-model="sessions">
+				<div class="item">
+					<label for="sessions">Sessions</label>
+					<div class="price">$
+						<span ng-bind="monthlyData.license_cost | number:2"></span>
+					</div>
+				</div>
+			</li>
+		</ul>
 	</div>
-	<div>
-		<span>Monthly Cost</span>
-		<div>$<span ng-bind="monthlyData.total_cost"></span>/mo</div>
+	<div class="pricing monthly-data">
+		<h2>Monthly Cost</h2>
+		<div>$ <span ng-bind="monthlyData.total_cost | number:2"></span> /mo</div>
 	</div>
-	<div>
-		<span>Total Cost</span>
-		<div>$<span ng-bind="yearlyData.total_cost"></span>/ye</div>
+	<div class="pricing yearly-data">
+		<h2>Total Cost</h2>
+		<div>$ <span ng-bind="yearlyData.total_cost | number:2"></span> /ye</div>
 	</div>
 </div>

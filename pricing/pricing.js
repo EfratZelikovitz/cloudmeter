@@ -3,7 +3,8 @@ app.directive('pricing', function() {
 	    restrict: 'AE',
 	    scope: { monthlyData: '=',
 				 yearlyData: '=',
-				 sessions: '='},
+				 sessions: '=',
+				 server: '='},
 	    templateUrl: 'pricing/pricing.html'
   	};
 });
